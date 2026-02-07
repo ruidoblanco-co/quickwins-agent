@@ -786,7 +786,7 @@ def run_crawl(url_input, progress_cb=None):
 # LLM
 # ───────────────────────────────────────────
 def call_gemini(prompt_text):
-    model = genai.GenerativeModel("gemini-2.5-flash")
+    model = genai.GenerativeModel("gemini-3-flash-preview")
     resp = model.generate_content(prompt_text)
     return (getattr(resp, "text", "") or "").strip()
 
