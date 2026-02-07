@@ -25,9 +25,9 @@ st.set_page_config(
 )
 
 BASE_DIR = Path(__file__).parent
-PROMPTS_DIR = BASE_DIR / "prompts"
-PROMPT_QUICKWINS = PROMPTS_DIR / "quickwins.md"
-PROMPT_FIX = PROMPTS_DIR / "generate_fix.md"
+# PROMPTS_DIR = BASE_DIR / "prompts"  <-- We dont use this folder
+PROMPT_QUICKWINS = BASE_DIR / "quickwins.md"
+PROMPT_FIX = BASE_DIR / "generate_fix.md"
 
 CRAWL_TIMEOUT = 12
 MAX_PAGES = 80
