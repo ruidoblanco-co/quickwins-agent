@@ -309,7 +309,7 @@ def run_crawl(url_input, progress_cb=None):
         "crawl_summary": summary, "pages": pages, "examples": examples}
 
 # ─── LLM ───
-def call_(prompt_text):
+def call_gemini(prompt_text):
     model = genai.GenerativeModel("gemini-3-flash-preview")
     resp = model.generate_content(prompt_text)
     return (getattr(resp, "text", "") or "").strip()
