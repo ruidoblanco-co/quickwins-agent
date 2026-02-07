@@ -17,9 +17,9 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 st.set_page_config(page_title="Quick Wins · SEO Agent", page_icon="⚡", layout="wide", initial_sidebar_state="collapsed")
 
 BASE_DIR = Path(__file__).parent
-PROMPTS_DIR = BASE_DIR / "prompts"
-PROMPT_QUICKWINS = PROMPTS_DIR / "quickwins.md"
-PROMPT_FIX = PROMPTS_DIR / "generate_fix.md"
+# PROMPTS_DIR = BASE_DIR / "prompts"  <-- We dont use this folder
+PROMPT_QUICKWINS = BASE_DIR / "quickwins.md"
+PROMPT_FIX = BASE_DIR / "generate_fix.md"
 CRAWL_TIMEOUT = 12
 MAX_PAGES = 80
 MAX_INTERNAL_LINKS_PER_PAGE = 10
@@ -309,8 +309,8 @@ def run_crawl(url_input, progress_cb=None):
         "crawl_summary": summary, "pages": pages, "examples": examples}
 
 # ─── LLM ───
-def call_gemini(prompt_text):
-    model = genai.GenerativeModel("gemini-2.5-flash")
+def call_(prompt_text):
+    model = genai.GenerativeModel("gemini-3-flash-preview")
     resp = model.generate_content(prompt_text)
     return (getattr(resp, "text", "") or "").strip()
 
