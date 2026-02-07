@@ -785,8 +785,8 @@ def run_crawl(url_input, progress_cb=None):
 # ───────────────────────────────────────────
 # LLM
 # ───────────────────────────────────────────
-def call_(prompt_text):
-    model = genai.GenerativeModel("gemini-3-flash-preview")
+def call_gemini(prompt_text):
+    model = genai.GenerativeModel("gemini-2.5-flash")
     resp = model.generate_content(prompt_text)
     return (getattr(resp, "text", "") or "").strip()
 
@@ -794,19 +794,38 @@ def call_(prompt_text):
 def analyze_quickwins(context):
     tmpl = load_prompt(PROMPT_QUICKWINS)
     if not tmpl:
+        st.error("❌ Could not load prompt file. Check that prompts/quickwins.md exists.")
         return None
     prompt = tmpl.replace("{{CONTEXT_JSON}}", json.dumps(context, ensure_ascii=False, indent=2))
-    raw = call_gemini(prompt)
-    raw = strip_json_fences(raw)
+
     try:
-        return json.loads(raw)
-    except Exception:
-        m = re.search(r"\{.*\}", raw, re.DOTALL)
+        raw = call_gemini(prompt)
+    except Exception as e:
+        st.error(f"❌ Gemini API call failed: {e}")
+        return None
+
+    if not raw:
+        st.error("❌ Gemini returned an empty response.")
+        return None
+
+    cleaned = strip_json_fences(raw)
+    try:
+        return json.loads(cleaned)
+    except Exception as e1:
+        # Try extracting JSON from mixed response
+        m = re.search(r"\{.*\}", cleaned, re.DOTALL)
         if m:
             try:
                 return json.loads(m.group())
-            except Exception:
-                pass
+            except Exception as e2:
+                st.error(f"❌ JSON parse failed (attempt 2): {e2}")
+        else:
+            st.error(f"❌ No JSON found in response. Parse error: {e1}")
+
+        # Show what Gemini actually returned for debugging
+        with st.expander("🔍 Debug: Raw Gemini response"):
+            st.code(raw[:3000], language=None)
+
     return None
 
 
