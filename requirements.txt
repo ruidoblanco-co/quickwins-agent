@@ -1,6 +1,7 @@
-streamlit
-google-generativeai
-beautifulsoup4
-requests
-lxml
-openpyxl
+streamlit>=1.30.0
+google-generativeai>=0.8.0
+beautifulsoup4>=4.12.0
+aiohttp>=3.9.0
+nest_asyncio>=1.6.0
+lxml>=5.0.0
+openpyxl>=3.1.0
