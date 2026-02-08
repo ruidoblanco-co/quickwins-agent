@@ -44,91 +44,70 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
-:root {
-    --bg: #F8FAFC;
-    --surface: #FFFFFF;
-    --border: #E2E8F0;
-    --border-hover: #CBD5E1;
-    --text-primary: #0F172A;
-    --text-secondary: #475569;
-    --text-muted: #94A3B8;
-    --accent: #2563EB;
-    --accent-light: #EFF6FF;
-    --accent-hover: #1D4ED8;
-    --red: #EF4444;
-    --red-bg: #FEF2F2;
-    --yellow: #F59E0B;
-    --yellow-bg: #FFFBEB;
-    --green: #10B981;
-    --green-bg: #ECFDF5;
-    --mono: 'JetBrains Mono', monospace;
-    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+/* ── Force readable text on ALL Streamlit elements ── */
+.stApp { background-color: #FFFFFF !important; font-family: 'Inter', -apple-system, sans-serif !important; }
+.stApp, .stApp p, .stApp div, .stApp span, .stApp li { color: #374151 !important; }
+.stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
+    font-family: 'Inter', -apple-system, sans-serif !important;
+    color: #1F2937 !important;
+    font-weight: 700 !important;
+}
+.stApp .stMarkdown p { color: #374151 !important; }
+.stApp .stMarkdown strong { color: #1F2937 !important; }
+
+/* Captions should be medium-gray, not invisible */
+.stApp .stCaption, .stApp [data-testid="stCaptionContainer"] p {
+    color: #6B7280 !important;
 }
 
-.stApp { background-color: var(--bg) !important; font-family: var(--sans) !important; }
 #MainMenu, footer, header { visibility: hidden; }
 .stDeployButton { display: none; }
-h1,h2,h3,h4,h5,h6 { font-family: var(--sans) !important; color: var(--text-primary) !important; font-weight: 700 !important; }
-p,li,span,div { font-family: var(--sans); }
 
 /* Hero */
 .hero { text-align: center; padding: 2.5rem 1.5rem .5rem; max-width: 640px; margin: 0 auto; }
-.hero-badge { display: inline-flex; align-items: center; gap: .5rem; padding: .35rem .9rem; border-radius: 20px; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; font-family: var(--mono); letter-spacing: .03em; margin-bottom: 1rem; }
-.hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-.hero-title { font-size: 38px; font-weight: 800; color: var(--text-primary); margin: 0 0 .4rem; letter-spacing: -.8px; line-height: 1.1; }
-.hero-sub { font-size: 15px; color: var(--text-secondary); margin: 0 0 1.75rem; line-height: 1.5; }
+.hero-badge { display: inline-flex; align-items: center; gap: .5rem; padding: .35rem .9rem; border-radius: 20px; background: #EFF6FF; color: #2563EB !important; font-size: 12px; font-weight: 600; font-family: 'JetBrains Mono', monospace; letter-spacing: .03em; margin-bottom: 1rem; }
+.hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #2563EB; }
+.hero-title { font-size: 38px; font-weight: 800; color: #1F2937 !important; margin: 0 0 .4rem; letter-spacing: -.8px; line-height: 1.1; }
+.hero-sub { font-size: 15px; color: #6B7280 !important; margin: 0 0 1.75rem; line-height: 1.5; }
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-bottom: 1.75rem; max-width: 540px; margin-left: auto; margin-right: auto; position: relative; }
-.steps::before { content: ''; position: absolute; top: 15px; left: calc(12.5% + 15px); right: calc(12.5% + 15px); height: 2px; background: var(--border); z-index: 0; }
+.steps::before { content: ''; position: absolute; top: 15px; left: calc(12.5% + 15px); right: calc(12.5% + 15px); height: 2px; background: #E5E7EB; z-index: 0; }
 .step { text-align: center; position: relative; z-index: 1; }
-.step-num { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: white; font-weight: 700; font-size: 13px; font-family: var(--mono); margin-bottom: .4rem; box-shadow: 0 2px 8px rgba(37,99,235,0.2); }
-.step-label { font-size: 12px; color: var(--text-muted); line-height: 1.3; }
+.step-num { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: #2563EB; color: white !important; font-weight: 700; font-size: 13px; font-family: 'JetBrains Mono', monospace; margin-bottom: .4rem; box-shadow: 0 2px 8px rgba(37,99,235,0.2); }
+.step-label { font-size: 12px; color: #6B7280 !important; line-height: 1.3; }
 
 /* Input */
-.stTextInput > div > div > input { background: var(--surface) !important; border: 1.5px solid var(--border) !important; border-radius: 10px !important; padding: 12px 16px !important; font-size: 15px !important; font-family: var(--sans) !important; color: var(--text-primary) !important; }
-.stTextInput > div > div > input:focus { border-color: var(--accent) !important; box-shadow: 0 0 0 3px rgba(37,99,235,0.1) !important; }
-.stTextInput > div > div > input::placeholder { color: var(--text-muted) !important; }
-.stButton > button { background: var(--accent) !important; color: white !important; border: none !important; border-radius: 10px !important; padding: .6rem 1.5rem !important; font-size: 14px !important; font-weight: 600 !important; font-family: var(--sans) !important; transition: all .2s ease !important; }
-.stButton > button:hover { background: var(--accent-hover) !important; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37,99,235,0.25) !important; }
-.stButton > button:disabled { background: var(--border) !important; color: var(--text-muted) !important; transform: none !important; box-shadow: none !important; }
+.stTextInput > div > div > input { background: #FFFFFF !important; border: 1.5px solid #D1D5DB !important; border-radius: 10px !important; padding: 12px 16px !important; font-size: 15px !important; color: #1F2937 !important; }
+.stTextInput > div > div > input:focus { border-color: #2563EB !important; box-shadow: 0 0 0 3px rgba(37,99,235,0.1) !important; }
+.stTextInput > div > div > input::placeholder { color: #9CA3AF !important; }
 
-/* Score Circle */
-.score-section { text-align: center; padding: 2rem 0 1rem; }
-.score-circle { position: relative; display: inline-block; width: 140px; height: 140px; }
-.score-circle svg { transform: rotate(-90deg); }
-.score-number { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 42px; font-weight: 800; font-family: var(--mono); color: var(--text-primary); }
-.score-label { font-size: 14px; color: var(--text-secondary); margin-top: .5rem; }
-.score-meta { font-size: 12px; color: var(--text-muted); font-family: var(--mono); margin-top: .25rem; }
+/* Primary buttons */
+.stButton > button { background: #2563EB !important; color: #FFFFFF !important; border: none !important; border-radius: 10px !important; padding: .6rem 1.5rem !important; font-size: 14px !important; font-weight: 600 !important; }
+.stButton > button:hover { background: #1D4ED8 !important; }
+.stButton > button:disabled { background: #D1D5DB !important; color: #9CA3AF !important; }
 
-/* Section Headers */
-.section-title { font-size: 18px; font-weight: 700; color: var(--text-primary); margin: 2rem 0 1rem; display: flex; align-items: center; gap: .5rem; }
-.section-count { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 24px; border-radius: 12px; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 700; font-family: var(--mono); padding: 0 8px; }
-
-/* Expander */
-.streamlit-expanderHeader { font-family: var(--sans) !important; font-size: 13px !important; font-weight: 500 !important; }
-.stAlert { border-radius: 10px !important; font-family: var(--sans) !important; }
-
-/* Tabs */
-.stTabs [data-baseweb="tab-list"] { gap: 0; }
-.stTabs [data-baseweb="tab"] { font-family: var(--sans) !important; font-weight: 500 !important; font-size: 14px !important; }
+/* Progress bar */
+.stProgress > div > div > div > div { background: linear-gradient(90deg, #2563EB, #3B82F6) !important; border-radius: 10px; }
 
 /* Download button */
-.stDownloadButton > button { background: var(--surface) !important; color: var(--text-primary) !important; border: 1.5px solid var(--border) !important; border-radius: 10px !important; font-family: var(--sans) !important; font-weight: 500 !important; font-size: 13px !important; }
-.stDownloadButton > button:hover { border-color: var(--accent) !important; color: var(--accent) !important; background: var(--accent-light) !important; box-shadow: none !important; transform: none !important; }
+.stDownloadButton > button { background: #FFFFFF !important; color: #1F2937 !important; border: 1.5px solid #D1D5DB !important; border-radius: 10px !important; }
+.stDownloadButton > button:hover { border-color: #2563EB !important; color: #2563EB !important; background: #EFF6FF !important; }
 
-.divider { height: 1px; background: var(--border); margin: 2rem 0; }
-.footer { text-align: center; padding: 3rem 0 1.5rem; font-size: 12px; color: var(--text-muted); }
+/* Tabs */
+.stTabs [data-baseweb="tab"] { font-weight: 500 !important; font-size: 14px !important; color: #374151 !important; }
+
+.footer { text-align: center; padding: 3rem 0 1.5rem; font-size: 12px; color: #9CA3AF !important; }
 </style>
 """, unsafe_allow_html=True)
 
 
 # ─── Rendering Helpers ──────────────────────────────────────────
 
-IMPACT_ICONS = {"high": ":red_circle:", "medium": ":large_yellow_circle:", "low": ":large_green_circle:"}
-SEVERITY_ICONS = {"critical": ":red_circle:", "high": ":large_orange_circle:", "medium": ":large_yellow_circle:", "low": ":large_green_circle:"}
+IMPACT_LABELS = {"high": "High", "medium": "Medium", "low": "Low"}
+SEVERITY_LABELS = {"critical": "Critical", "high": "High", "medium": "Medium", "low": "Low"}
 
 
 def render_score_circle(score: int) -> str:
-    """Render an SVG score circle (this small piece stays as HTML — SVG has no Streamlit equivalent)."""
+    """Render an SVG score circle."""
     if score >= 70:
         color = "#10B981"
     elif score >= 40:
@@ -141,11 +120,11 @@ def render_score_circle(score: int) -> str:
     return f"""<div style="text-align:center;padding:2rem 0 .5rem">
         <div style="position:relative;display:inline-block;width:140px;height:140px">
             <svg width="140" height="140" viewBox="0 0 140 140" style="transform:rotate(-90deg)">
-                <circle cx="70" cy="70" r="{radius}" fill="none" stroke="#E2E8F0" stroke-width="8"/>
+                <circle cx="70" cy="70" r="{radius}" fill="none" stroke="#E5E7EB" stroke-width="8"/>
                 <circle cx="70" cy="70" r="{radius}" fill="none" stroke="{color}" stroke-width="8"
                     stroke-linecap="round" stroke-dasharray="{circumference}" stroke-dashoffset="{offset}"/>
             </svg>
-            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:42px;font-weight:800;font-family:var(--mono);color:var(--text-primary)">{score}</div>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:42px;font-weight:800;font-family:'JetBrains Mono',monospace;color:#1F2937">{score}</div>
         </div></div>"""
 
 
@@ -158,27 +137,26 @@ def render_quickwin_card(win: dict, rank: int) -> None:
     why = win.get("why_matters", "")
     action = win.get("what_to_do", "")
     example_urls = win.get("example_urls", [])
-    impact_icon = IMPACT_ICONS.get(impact, ":large_yellow_circle:")
 
     with st.container(border=True):
         col_rank, col_content = st.columns([1, 20])
         with col_rank:
-            st.markdown(f"**`{rank}`**")
+            st.markdown(f"### {rank}")
         with col_content:
             st.markdown(f"**{win.get('issue', '')}**")
             if why:
-                st.caption(why)
+                st.write(why)
             if action:
-                st.info(f"**What to do:** {action}", icon=":material/lightbulb:")
+                st.info(f"**What to do:** {action}")
 
             c1, c2, c3, c4 = st.columns(4)
-            c1.caption(f":label: {category}")
-            c2.caption(f":link: {urls_count} URLs")
-            c3.caption(f"{impact_icon} Impact: {impact}")
-            c4.caption(f":hammer_and_wrench: Effort: {effort}")
+            c1.write(f"**{category}**")
+            c2.write(f"**{urls_count}** URLs")
+            c3.write(f"Impact: **{IMPACT_LABELS.get(impact, impact)}**")
+            c4.write(f"Effort: **{IMPACT_LABELS.get(effort, effort)}**")
 
         if example_urls:
-            with st.expander(f":mag: View affected URLs ({len(example_urls)} examples)"):
+            with st.expander(f"View {len(example_urls)} affected URLs"):
                 for eu in example_urls[:10]:
                     st.code(eu, language=None)
 
@@ -187,20 +165,20 @@ def render_finding_item(finding: dict) -> None:
     """Render a single finding using native Streamlit components."""
     severity = (finding.get("severity") or "medium").lower()
     count = finding.get("count", 0)
-    sev_icon = SEVERITY_ICONS.get(severity, ":large_yellow_circle:")
+    sev_label = SEVERITY_LABELS.get(severity, severity)
     urls = finding.get("urls", [])
 
     with st.container(border=True):
-        col_sev, col_text, col_count = st.columns([1, 12, 3])
-        with col_sev:
-            st.markdown(sev_icon)
+        col_text, col_sev, col_count = st.columns([8, 2, 2])
         with col_text:
-            st.markdown(f"**{finding.get('issue', '')}**")
+            st.write(f"**{finding.get('issue', '')}**")
+        with col_sev:
+            st.write(f"*{sev_label}*")
         with col_count:
-            st.caption(f"`{count}` URLs")
+            st.write(f"**{count}** URLs")
 
         if urls:
-            with st.expander(f":mag: View {len(urls)} affected URLs"):
+            with st.expander(f"View {len(urls)} affected URLs"):
                 for u in urls[:20]:
                     st.code(u, language=None)
 
@@ -259,34 +237,45 @@ if run_btn and url_input:
     st.session_state.crawl_data = None
     st.session_state.analysis_data = None
 
-    with st.status("Analyzing your site...", expanded=True) as status_bar:
-        try:
-            st.write(":globe_with_meridians: Discovering pages from sitemaps...")
-            loop = asyncio.new_event_loop()
-            crawl_result = loop.run_until_complete(crawl_site(url_input))
-            loop.close()
-            st.session_state.crawl_data = crawl_result
-            st.write(f":white_check_mark: Found {crawl_result.urls_analyzed} pages to analyze")
+    progress = st.progress(0)
+    status_text = st.empty()
 
-            st.write(":mag: Detecting SEO issues...")
-            analysis = analyze(crawl_result)
-            st.session_state.analysis_data = analysis
-            st.write(f":white_check_mark: Found {analysis.total_count} issues (score: {analysis.score}/100)")
+    def update_progress(pct: int, msg: str) -> None:
+        progress.progress(min(pct, 100))
+        status_text.caption(msg)
 
-            st.write(":brain: AI is picking your Top 5 Quick Wins...")
-            llm_result = prioritize_quickwins(
-                analysis.to_dict(),
-                crawl_result.to_dict(),
-            )
-            if llm_result:
-                st.session_state.result = llm_result
-                st.write(":white_check_mark: Quick wins prioritized!")
+    try:
+        # Crawl
+        update_progress(5, "Discovering pages from sitemaps...")
+        loop = asyncio.new_event_loop()
+        crawl_result = loop.run_until_complete(
+            crawl_site(url_input, progress_cb=update_progress)
+        )
+        loop.close()
+        st.session_state.crawl_data = crawl_result
 
-            status_bar.update(label=":white_check_mark: Analysis complete!", state="complete", expanded=False)
+        # Analyze
+        update_progress(80, "Detecting SEO issues...")
+        analysis = analyze(crawl_result)
+        st.session_state.analysis_data = analysis
 
-        except Exception as e:
-            status_bar.update(label=":x: Analysis failed", state="error")
-            st.error(f"Analysis failed: {str(e)}")
+        # LLM Prioritization
+        update_progress(85, "AI is picking your Top 5 Quick Wins...")
+        llm_result = prioritize_quickwins(
+            analysis.to_dict(),
+            crawl_result.to_dict(),
+        )
+        if llm_result:
+            st.session_state.result = llm_result
+
+        update_progress(100, "Done!")
+
+    except Exception as e:
+        st.error(f"Analysis failed: {str(e)}")
+
+    time.sleep(0.3)
+    progress.empty()
+    status_text.empty()
 
 
 # ─── Results ────────────────────────────────────────────────────
@@ -302,12 +291,12 @@ if st.session_state.result:
     domain = data.get("domain", crawl.domain if crawl else "")
     urls_analyzed = crawl.urls_analyzed if crawl else 0
 
-    st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
+    st.divider()
 
     # ── Reset Button ──
     _, col_reset = st.columns([5, 1])
     with col_reset:
-        if st.button(":arrows_counterclockwise: New Audit", use_container_width=True):
+        if st.button("New Analysis", type="secondary", use_container_width=True):
             st.session_state.result = None
             st.session_state.crawl_data = None
             st.session_state.analysis_data = None
@@ -316,10 +305,10 @@ if st.session_state.result:
     # ── Score ──
     st.markdown(render_score_circle(score), unsafe_allow_html=True)
     st.markdown(
-        f'<p style="text-align:center;color:var(--text-secondary);font-size:14px;margin:0">'
-        f'SEO Health Score for <strong>{domain}</strong></p>'
-        f'<p style="text-align:center;color:var(--text-muted);font-size:12px;font-family:var(--mono);margin:.25rem 0 0">'
-        f'{urls_analyzed} pages analyzed · {datetime.now().strftime("%b %d, %Y")}</p>',
+        f'<p style="text-align:center;color:#374151;font-size:14px;margin:0">'
+        f'SEO Health Score for <strong style="color:#1F2937">{domain}</strong></p>'
+        f'<p style="text-align:center;color:#6B7280;font-size:12px;font-family:monospace;margin:.25rem 0 0">'
+        f'{urls_analyzed} pages analyzed &middot; {datetime.now().strftime("%b %d, %Y")}</p>',
         unsafe_allow_html=True,
     )
 
@@ -337,12 +326,11 @@ if st.session_state.result:
             "2. Place it at `yoursite.com/sitemap.xml`\n"
             "3. Add `Sitemap: https://yoursite.com/sitemap.xml` to your `robots.txt`\n"
             "4. Submit it in Google Search Console under Sitemaps",
-            icon=":warning:",
         )
 
     # ── Top 5 Quick Wins ──
     if top_5:
-        st.subheader(f":dart: Your Top {len(top_5)} Quick Wins")
+        st.subheader(f"Your Top {len(top_5)} Quick Wins")
         for i, win in enumerate(top_5, 1):
             render_quickwin_card(win, i)
 
@@ -356,7 +344,7 @@ if st.session_state.result:
 
     if total_findings > 0:
         st.divider()
-        st.subheader(f":clipboard: All Findings ({total_findings})")
+        st.subheader(f"All Findings ({total_findings})")
 
         tab_labels = []
         tab_data = []
@@ -382,8 +370,8 @@ if st.session_state.result:
 
     # ── Download ──
     st.divider()
-    st.subheader(":inbox_tray: Download Action Plan")
-    st.caption("Get the full report as an Excel file ready for Google Sheets.")
+    st.subheader("Download Action Plan")
+    st.write("Get the full report as an Excel file ready for Google Sheets.")
 
     excel = create_action_plan(top_5, all_findings, domain)
     fname = f"QuickWins_{domain}_{datetime.now().strftime('%Y%m%d')}.xlsx"
