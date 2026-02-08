@@ -103,64 +103,17 @@ p,li,span,div { font-family: var(--sans); }
 .section-title { font-size: 18px; font-weight: 700; color: var(--text-primary); margin: 2rem 0 1rem; display: flex; align-items: center; gap: .5rem; }
 .section-count { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 24px; border-radius: 12px; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 700; font-family: var(--mono); padding: 0 8px; }
 
-/* Quick Win Cards */
-.qw-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: .75rem; transition: border-color .2s, box-shadow .2s; }
-.qw-card:hover { border-color: var(--border-hover); box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
-.qw-card-rank { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: var(--accent); color: white; font-weight: 700; font-size: 14px; font-family: var(--mono); flex-shrink: 0; }
-.qw-card-header { display: flex; align-items: flex-start; gap: .75rem; margin-bottom: .5rem; }
-.qw-card-title { font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 0; flex: 1; line-height: 1.4; }
-.qw-card-why { font-size: 13px; color: var(--text-secondary); line-height: 1.55; margin: 0 0 .5rem; padding-left: 2.5rem; }
-.qw-card-action { font-size: 13px; color: var(--text-primary); background: #F8FAFC; border-radius: 8px; padding: .75rem 1rem; margin: .5rem 0 .75rem 2.5rem; line-height: 1.5; border-left: 3px solid var(--accent); }
-.qw-card-action-label { font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .04em; margin-bottom: .25rem; }
-.qw-card-meta { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; padding-left: 2.5rem; }
-
-/* Priority Dot */
-.priority-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 4px; }
-.priority-high { background: var(--red); }
-.priority-medium { background: var(--yellow); }
-.priority-low { background: var(--green); }
-
-/* Badges */
-.badge { display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 6px; font-size: 11px; font-weight: 600; letter-spacing: .03em; font-family: var(--mono); }
-.badge-impact-high { background: var(--red-bg); color: var(--red); }
-.badge-impact-medium { background: var(--yellow-bg); color: var(--yellow); }
-.badge-impact-low { background: var(--green-bg); color: var(--green); }
-.badge-effort { background: #F3F4F6; color: var(--text-secondary); }
-.badge-urls { background: var(--accent-light); color: var(--accent); }
-.badge-cat { background: #F3F4F6; color: var(--text-secondary); font-weight: 500; }
-
-/* Finding items */
-.finding-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: .5rem; display: flex; align-items: center; gap: 1rem; }
-.finding-sev { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.finding-sev-critical { background: var(--red); }
-.finding-sev-high { background: #EA580C; }
-.finding-sev-medium { background: var(--yellow); }
-.finding-sev-low { background: var(--green); }
-.finding-text { flex: 1; font-size: 14px; color: var(--text-primary); }
-.finding-count { font-family: var(--mono); font-size: 13px; color: var(--text-muted); white-space: nowrap; }
-
-/* Sitemap Warning */
-.sitemap-warning { background: #FEF2F2; border: 2px solid #FECACA; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
-.sitemap-warning-title { font-size: 16px; font-weight: 700; color: var(--red); margin-bottom: .5rem; }
-.sitemap-warning-text { font-size: 14px; color: #991B1B; line-height: 1.6; }
-
-/* Download */
-.download-box { background: var(--surface); border: 1.5px dashed var(--border); border-radius: 12px; padding: 2rem; text-align: center; margin: 1.5rem 0; }
-.download-title { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: .25rem; }
-.download-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 1rem; }
-.stDownloadButton > button { background: var(--surface) !important; color: var(--text-primary) !important; border: 1.5px solid var(--border) !important; border-radius: 10px !important; font-family: var(--sans) !important; font-weight: 500 !important; font-size: 13px !important; }
-.stDownloadButton > button:hover { border-color: var(--accent) !important; color: var(--accent) !important; background: var(--accent-light) !important; box-shadow: none !important; transform: none !important; }
-
-/* Progress */
-.stProgress > div > div > div > div { background: linear-gradient(90deg, #2563EB, #3B82F6) !important; border-radius: 10px; }
-
 /* Expander */
-.streamlit-expanderHeader { font-family: var(--sans) !important; font-size: 13px !important; font-weight: 500 !important; color: var(--text-secondary) !important; }
+.streamlit-expanderHeader { font-family: var(--sans) !important; font-size: 13px !important; font-weight: 500 !important; }
 .stAlert { border-radius: 10px !important; font-family: var(--sans) !important; }
 
 /* Tabs */
 .stTabs [data-baseweb="tab-list"] { gap: 0; }
 .stTabs [data-baseweb="tab"] { font-family: var(--sans) !important; font-weight: 500 !important; font-size: 14px !important; }
+
+/* Download button */
+.stDownloadButton > button { background: var(--surface) !important; color: var(--text-primary) !important; border: 1.5px solid var(--border) !important; border-radius: 10px !important; font-family: var(--sans) !important; font-weight: 500 !important; font-size: 13px !important; }
+.stDownloadButton > button:hover { border-color: var(--accent) !important; color: var(--accent) !important; background: var(--accent-light) !important; box-shadow: none !important; transform: none !important; }
 
 .divider { height: 1px; background: var(--border); margin: 2rem 0; }
 .footer { text-align: center; padding: 3rem 0 1.5rem; font-size: 12px; color: var(--text-muted); }
@@ -170,82 +123,86 @@ p,li,span,div { font-family: var(--sans); }
 
 # ─── Rendering Helpers ──────────────────────────────────────────
 
+IMPACT_ICONS = {"high": ":red_circle:", "medium": ":large_yellow_circle:", "low": ":large_green_circle:"}
+SEVERITY_ICONS = {"critical": ":red_circle:", "high": ":large_orange_circle:", "medium": ":large_yellow_circle:", "low": ":large_green_circle:"}
+
 
 def render_score_circle(score: int) -> str:
-    """Render an SVG score circle."""
+    """Render an SVG score circle (this small piece stays as HTML — SVG has no Streamlit equivalent)."""
     if score >= 70:
         color = "#10B981"
     elif score >= 40:
         color = "#F59E0B"
     else:
         color = "#EF4444"
-
-    # SVG circle math
     radius = 58
     circumference = 2 * 3.14159 * radius
     offset = circumference * (1 - score / 100)
-
-    return f"""
-    <div class="score-section">
-        <div class="score-circle">
-            <svg width="140" height="140" viewBox="0 0 140 140">
+    return f"""<div style="text-align:center;padding:2rem 0 .5rem">
+        <div style="position:relative;display:inline-block;width:140px;height:140px">
+            <svg width="140" height="140" viewBox="0 0 140 140" style="transform:rotate(-90deg)">
                 <circle cx="70" cy="70" r="{radius}" fill="none" stroke="#E2E8F0" stroke-width="8"/>
                 <circle cx="70" cy="70" r="{radius}" fill="none" stroke="{color}" stroke-width="8"
                     stroke-linecap="round" stroke-dasharray="{circumference}" stroke-dashoffset="{offset}"/>
             </svg>
-            <div class="score-number">{score}</div>
-        </div>
-    </div>
-    """
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:42px;font-weight:800;font-family:var(--mono);color:var(--text-primary)">{score}</div>
+        </div></div>"""
 
 
-def render_quickwin_card(win: dict, rank: int) -> str:
-    """Render a single quick win card."""
+def render_quickwin_card(win: dict, rank: int) -> None:
+    """Render a quick win card using native Streamlit components."""
     impact = (win.get("impact") or "medium").lower()
     effort = (win.get("effort") or "medium").lower()
-    urls = win.get("urls_affected", 0)
+    urls_count = win.get("urls_affected", 0)
     category = (win.get("category") or "general").title()
-
-    impact_badge = f'<span class="badge badge-impact-{impact}">Impact: {impact}</span>'
-    effort_badge = f'<span class="badge badge-effort">Effort: {effort}</span>'
-    urls_badge = f'<span class="badge badge-urls">{urls} URLs</span>'
-    cat_badge = f'<span class="badge badge-cat">{category}</span>'
-
     why = win.get("why_matters", "")
     action = win.get("what_to_do", "")
+    example_urls = win.get("example_urls", [])
+    impact_icon = IMPACT_ICONS.get(impact, ":large_yellow_circle:")
 
-    action_html = ""
-    if action:
-        action_html = f"""
-        <div class="qw-card-action">
-            <div class="qw-card-action-label">What to do</div>
-            {action}
-        </div>"""
+    with st.container(border=True):
+        col_rank, col_content = st.columns([1, 20])
+        with col_rank:
+            st.markdown(f"**`{rank}`**")
+        with col_content:
+            st.markdown(f"**{win.get('issue', '')}**")
+            if why:
+                st.caption(why)
+            if action:
+                st.info(f"**What to do:** {action}", icon=":material/lightbulb:")
 
-    return f"""
-    <div class="qw-card">
-        <div class="qw-card-header">
-            <div class="qw-card-rank">{rank}</div>
-            <p class="qw-card-title">{win.get('issue', '')}</p>
-        </div>
-        <p class="qw-card-why">{why}</p>
-        {action_html}
-        <div class="qw-card-meta">
-            {cat_badge} {urls_badge} {impact_badge} {effort_badge}
-        </div>
-    </div>"""
+            c1, c2, c3, c4 = st.columns(4)
+            c1.caption(f":label: {category}")
+            c2.caption(f":link: {urls_count} URLs")
+            c3.caption(f"{impact_icon} Impact: {impact}")
+            c4.caption(f":hammer_and_wrench: Effort: {effort}")
+
+        if example_urls:
+            with st.expander(f":mag: View affected URLs ({len(example_urls)} examples)"):
+                for eu in example_urls[:10]:
+                    st.code(eu, language=None)
 
 
-def render_finding_item(finding: dict) -> str:
-    """Render a single finding in the All Findings section."""
+def render_finding_item(finding: dict) -> None:
+    """Render a single finding using native Streamlit components."""
     severity = (finding.get("severity") or "medium").lower()
     count = finding.get("count", 0)
-    return f"""
-    <div class="finding-item">
-        <div class="finding-sev finding-sev-{severity}"></div>
-        <div class="finding-text">{finding.get('issue', '')}</div>
-        <div class="finding-count">{count} URLs</div>
-    </div>"""
+    sev_icon = SEVERITY_ICONS.get(severity, ":large_yellow_circle:")
+    urls = finding.get("urls", [])
+
+    with st.container(border=True):
+        col_sev, col_text, col_count = st.columns([1, 12, 3])
+        with col_sev:
+            st.markdown(sev_icon)
+        with col_text:
+            st.markdown(f"**{finding.get('issue', '')}**")
+        with col_count:
+            st.caption(f"`{count}` URLs")
+
+        if urls:
+            with st.expander(f":mag: View {len(urls)} affected URLs"):
+                for u in urls[:20]:
+                    st.code(u, language=None)
 
 
 # ─── Session State ──────────────────────────────────────────────
@@ -302,45 +259,34 @@ if run_btn and url_input:
     st.session_state.crawl_data = None
     st.session_state.analysis_data = None
 
-    progress = st.progress(0)
-    status = st.empty()
+    with st.status("Analyzing your site...", expanded=True) as status_bar:
+        try:
+            st.write(":globe_with_meridians: Discovering pages from sitemaps...")
+            loop = asyncio.new_event_loop()
+            crawl_result = loop.run_until_complete(crawl_site(url_input))
+            loop.close()
+            st.session_state.crawl_data = crawl_result
+            st.write(f":white_check_mark: Found {crawl_result.urls_analyzed} pages to analyze")
 
-    def update_progress(pct: int, msg: str) -> None:
-        progress.progress(min(pct, 100))
-        status.caption(msg)
+            st.write(":mag: Detecting SEO issues...")
+            analysis = analyze(crawl_result)
+            st.session_state.analysis_data = analysis
+            st.write(f":white_check_mark: Found {analysis.total_count} issues (score: {analysis.score}/100)")
 
-    try:
-        # Crawl
-        loop = asyncio.new_event_loop()
-        crawl_result = loop.run_until_complete(
-            crawl_site(url_input, progress_cb=update_progress)
-        )
-        loop.close()
+            st.write(":brain: AI is picking your Top 5 Quick Wins...")
+            llm_result = prioritize_quickwins(
+                analysis.to_dict(),
+                crawl_result.to_dict(),
+            )
+            if llm_result:
+                st.session_state.result = llm_result
+                st.write(":white_check_mark: Quick wins prioritized!")
 
-        st.session_state.crawl_data = crawl_result
+            status_bar.update(label=":white_check_mark: Analysis complete!", state="complete", expanded=False)
 
-        # Analyze
-        update_progress(80, "Detecting SEO issues...")
-        analysis = analyze(crawl_result)
-        st.session_state.analysis_data = analysis
-
-        # LLM Prioritization
-        update_progress(85, "AI is picking your Top 5 Quick Wins...")
-        llm_result = prioritize_quickwins(
-            analysis.to_dict(),
-            crawl_result.to_dict(),
-        )
-        if llm_result:
-            st.session_state.result = llm_result
-
-        update_progress(100, "Done!")
-
-    except Exception as e:
-        st.error(f"Analysis failed: {str(e)}")
-
-    time.sleep(0.3)
-    progress.empty()
-    status.empty()
+        except Exception as e:
+            status_bar.update(label=":x: Analysis failed", state="error")
+            st.error(f"Analysis failed: {str(e)}")
 
 
 # ─── Results ────────────────────────────────────────────────────
@@ -358,44 +304,47 @@ if st.session_state.result:
 
     st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
+    # ── Reset Button ──
+    _, col_reset = st.columns([5, 1])
+    with col_reset:
+        if st.button(":arrows_counterclockwise: New Audit", use_container_width=True):
+            st.session_state.result = None
+            st.session_state.crawl_data = None
+            st.session_state.analysis_data = None
+            st.rerun()
+
     # ── Score ──
     st.markdown(render_score_circle(score), unsafe_allow_html=True)
     st.markdown(
-        f'<div style="text-align:center"><div class="score-label">SEO Health Score for <strong>{domain}</strong></div>'
-        f'<div class="score-meta">{urls_analyzed} pages analyzed &middot; {datetime.now().strftime("%b %d, %Y")}</div></div>',
+        f'<p style="text-align:center;color:var(--text-secondary);font-size:14px;margin:0">'
+        f'SEO Health Score for <strong>{domain}</strong></p>'
+        f'<p style="text-align:center;color:var(--text-muted);font-size:12px;font-family:var(--mono);margin:.25rem 0 0">'
+        f'{urls_analyzed} pages analyzed · {datetime.now().strftime("%b %d, %Y")}</p>',
         unsafe_allow_html=True,
     )
 
     # ── Sitemap Warning ──
     if crawl and crawl.sitemap_missing:
-        st.markdown("""
-        <div class="sitemap-warning">
-            <div class="sitemap-warning-title">&#9888; Critical: No XML Sitemap Found</div>
-            <div class="sitemap-warning-text">
-                Your site has no XML sitemap. This is one of the most important technical SEO elements you need to fix <strong>as soon as possible</strong>.<br><br>
-                <strong>Why this matters:</strong> An XML sitemap is your direct communication channel with search engines. Without it, Google has to discover your pages by crawling links alone — which means deeper pages may never get indexed. Sites with sitemaps get indexed faster and more completely.<br><br>
-                <strong>What to do right now:</strong><br>
-                1. Generate a sitemap using your CMS (WordPress: Yoast/RankMath, Shopify: automatic) or a tool like xml-sitemaps.com<br>
-                2. Place it at <code>yoursite.com/sitemap.xml</code><br>
-                3. Add <code>Sitemap: https://yoursite.com/sitemap.xml</code> to your robots.txt<br>
-                4. Submit it in Google Search Console under Sitemaps
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.error(
+            "**Critical: No XML Sitemap Found**\n\n"
+            "Your site has no XML sitemap. This is one of the most important technical SEO "
+            "elements you need to fix **as soon as possible**.\n\n"
+            "**Why this matters:** An XML sitemap is your direct communication channel with "
+            "search engines. Without it, Google has to discover your pages by crawling links "
+            "alone — which means deeper pages may never get indexed.\n\n"
+            "**What to do right now:**\n"
+            "1. Generate a sitemap using your CMS (WordPress: Yoast/RankMath, Shopify: automatic)\n"
+            "2. Place it at `yoursite.com/sitemap.xml`\n"
+            "3. Add `Sitemap: https://yoursite.com/sitemap.xml` to your `robots.txt`\n"
+            "4. Submit it in Google Search Console under Sitemaps",
+            icon=":warning:",
+        )
 
     # ── Top 5 Quick Wins ──
     if top_5:
-        st.markdown(
-            f'<div class="section-title">&#127919; Your Top 5 Quick Wins <span class="section-count">{len(top_5)}</span></div>',
-            unsafe_allow_html=True,
-        )
+        st.subheader(f":dart: Your Top {len(top_5)} Quick Wins")
         for i, win in enumerate(top_5, 1):
-            st.markdown(render_quickwin_card(win, i), unsafe_allow_html=True)
-            example_urls = win.get("example_urls", [])
-            if example_urls:
-                with st.expander(f"View affected URLs ({len(example_urls)} examples)"):
-                    for eu in example_urls[:10]:
-                        st.code(eu, language=None)
+            render_quickwin_card(win, i)
 
     # ── All Findings (Tabs) ──
     content_findings = all_findings.get("content", [])
@@ -406,25 +355,22 @@ if st.session_state.result:
     total_findings = len(content_findings) + len(heading_findings) + len(link_findings) + len(tech_findings)
 
     if total_findings > 0:
-        st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
-        st.markdown(
-            f'<div class="section-title">&#128203; All Findings <span class="section-count">{total_findings}</span></div>',
-            unsafe_allow_html=True,
-        )
+        st.divider()
+        st.subheader(f":clipboard: All Findings ({total_findings})")
 
         tab_labels = []
         tab_data = []
         if content_findings:
-            tab_labels.append(f"Content Issues ({len(content_findings)})")
+            tab_labels.append(f"Content ({len(content_findings)})")
             tab_data.append(content_findings)
         if heading_findings:
-            tab_labels.append(f"Heading Issues ({len(heading_findings)})")
+            tab_labels.append(f"Headings ({len(heading_findings)})")
             tab_data.append(heading_findings)
         if link_findings:
-            tab_labels.append(f"Link Issues ({len(link_findings)})")
+            tab_labels.append(f"Links ({len(link_findings)})")
             tab_data.append(link_findings)
         if tech_findings:
-            tab_labels.append(f"Technical Issues ({len(tech_findings)})")
+            tab_labels.append(f"Technical ({len(tech_findings)})")
             tab_data.append(tech_findings)
 
         if tab_labels:
@@ -432,22 +378,12 @@ if st.session_state.result:
             for tab, findings in zip(tabs, tab_data):
                 with tab:
                     for f in findings:
-                        st.markdown(render_finding_item(f), unsafe_allow_html=True)
-                        urls = f.get("urls", [])
-                        if urls:
-                            with st.expander(f"View {len(urls)} affected URLs"):
-                                for u in urls[:20]:
-                                    st.code(u, language=None)
+                        render_finding_item(f)
 
     # ── Download ──
-    st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="download-box">'
-        '<div class="download-title">Download your Action Plan</div>'
-        '<div class="download-desc">Get the full report as an Excel file ready for Google Sheets.</div>'
-        '</div>',
-        unsafe_allow_html=True,
-    )
+    st.divider()
+    st.subheader(":inbox_tray: Download Action Plan")
+    st.caption("Get the full report as an Excel file ready for Google Sheets.")
 
     excel = create_action_plan(top_5, all_findings, domain)
     fname = f"QuickWins_{domain}_{datetime.now().strftime('%Y%m%d')}.xlsx"
