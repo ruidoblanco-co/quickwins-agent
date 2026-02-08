@@ -72,14 +72,16 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--sans) !important; color: var(--text-prima
 p,li,span,div { font-family: var(--sans); }
 
 /* Hero */
-.hero { text-align: center; padding: 3rem 1.5rem 1rem; max-width: 680px; margin: 0 auto; }
-.hero-icon { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 14px; background: linear-gradient(135deg, #2563EB, #3B82F6); color: white; font-size: 26px; margin-bottom: 1rem; box-shadow: 0 4px 16px rgba(37,99,235,0.25); }
-.hero-title { font-size: 34px; font-weight: 800; color: var(--text-primary); margin: 0 0 .5rem; letter-spacing: -.6px; }
-.hero-sub { font-size: 15px; color: var(--text-secondary); margin: 0 0 2rem; line-height: 1.6; max-width: 500px; margin-left: auto; margin-right: auto; }
-.steps { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
-.step { text-align: center; max-width: 155px; }
-.step-num { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--accent-light); color: var(--accent); font-weight: 700; font-size: 13px; font-family: var(--mono); margin-bottom: .4rem; }
-.step-label { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
+.hero { text-align: center; padding: 2.5rem 1.5rem .5rem; max-width: 640px; margin: 0 auto; }
+.hero-badge { display: inline-flex; align-items: center; gap: .5rem; padding: .35rem .9rem; border-radius: 20px; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; font-family: var(--mono); letter-spacing: .03em; margin-bottom: 1rem; }
+.hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.hero-title { font-size: 38px; font-weight: 800; color: var(--text-primary); margin: 0 0 .4rem; letter-spacing: -.8px; line-height: 1.1; }
+.hero-sub { font-size: 15px; color: var(--text-secondary); margin: 0 0 1.75rem; line-height: 1.5; }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-bottom: 1.75rem; max-width: 540px; margin-left: auto; margin-right: auto; position: relative; }
+.steps::before { content: ''; position: absolute; top: 15px; left: calc(12.5% + 15px); right: calc(12.5% + 15px); height: 2px; background: var(--border); z-index: 0; }
+.step { text-align: center; position: relative; z-index: 1; }
+.step-num { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: white; font-weight: 700; font-size: 13px; font-family: var(--mono); margin-bottom: .4rem; box-shadow: 0 2px 8px rgba(37,99,235,0.2); }
+.step-label { font-size: 12px; color: var(--text-muted); line-height: 1.3; }
 
 /* Input */
 .stTextInput > div > div > input { background: var(--surface) !important; border: 1.5px solid var(--border) !important; border-radius: 10px !important; padding: 12px 16px !important; font-size: 15px !important; font-family: var(--sans) !important; color: var(--text-primary) !important; }
@@ -260,17 +262,14 @@ if "analysis_data" not in st.session_state:
 
 st.markdown("""
 <div class="hero">
-    <div class="hero-icon">⚡</div>
+    <div class="hero-badge"><span class="hero-badge-dot"></span> SEO AUDIT TOOL</div>
     <h1 class="hero-title">Quick Wins</h1>
-    <p class="hero-sub">
-        Find actionable SEO improvements you can fix today.<br>
-        Enter your URL, get a prioritized action plan.
-    </p>
+    <p class="hero-sub">Find actionable SEO improvements you can fix today.</p>
     <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-label">Enter your website URL</div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-label">Click "Analyze Site"</div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-label">Review your Quick Wins</div></div>
-        <div class="step"><div class="step-num">4</div><div class="step-label">Download action plan</div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-label">Enter URL</div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-label">Analyze</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-label">Review wins</div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-label">Download</div></div>
     </div>
 </div>
 """, unsafe_allow_html=True)
